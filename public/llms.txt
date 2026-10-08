@@ -1,0 +1,13 @@
+# SEO Specialist Portfolio
+
+> Portfolio of an SEO specialist: technical SEO, local SEO, Google Business Profile optimisation and content strategy. Open to freelance projects and full-time roles.
+
+## Pages
+
+- [Home](/): about, résumé, case studies, insights and contact details
+- [Insights](/insights): articles on search, rankings and SEO practice
+- [Case studies](/#work): each project has its own page at /work/<name>, with the client's industry, the strategy and the measured results
+
+## Contact
+
+The "Get in Touch" section at the bottom of the home page (/#contact) lists phone, email and LinkedIn.
