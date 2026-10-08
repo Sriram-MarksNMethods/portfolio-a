@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   const { slug } = await params;
   const [settings, study] = await Promise.all([getSettings(), getCaseStudy(slug)]);
   if (!study) return {};
-  return buildMetadata({ settings, seo: study.seo, title: study.title, description: study.subtitle, path: `/work/${slug}` });
+  return buildMetadata({ settings, seo: study.seo, title: study.title, description: study.subtitle, path: `/work/${slug}`, label: "Case study" });
 }
 
 // "**2.6K to 8.1K**" → bold maroon numbers

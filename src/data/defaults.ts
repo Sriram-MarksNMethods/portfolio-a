@@ -34,7 +34,8 @@ export const defaultSettings: Settings = {
   links: [{ label: "LinkedIn", url: "https://www.linkedin.com/in/meeraiyer" }],
   siteTitle: "Meera Iyer · SEO Specialist",
   siteDescription: "SEO specialist helping businesses get found on Google: technical SEO, local SEO, Google Business Profile and content strategy.",
-  siteUrl: "http://localhost:3000",
+  // until she sets Site settings → Website address: the live Vercel address, or localhost when running locally
+  siteUrl: process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000",
 };
 
 export const defaultCaseStudies: CaseStudy[] = [

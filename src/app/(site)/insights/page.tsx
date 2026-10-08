@@ -12,7 +12,7 @@ async function getInsightsText() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const [settings, insights] = await Promise.all([getSettings(), getInsightsText()]);
-  return buildMetadata({ settings, title: insights?.heading || "Insights", description: insights?.intro, path: "/insights" });
+  return buildMetadata({ settings, title: insights?.heading || "Insights", description: insights?.intro, path: "/insights", label: "Insights" });
 }
 
 export default async function InsightsPage() {

@@ -11,7 +11,7 @@ export default function StudioPage() {
       <main className="mx-auto grid max-w-[62ch] gap-4 px-5 py-16">
         <h1 className="font-head text-5xl text-maroon uppercase">Dashboard not connected yet</h1>
         <p>
-          Add <code>NEXT_PUBLIC_SANITY_PROJECT_ID</code> to <code>.env.local</code> (see <code>.env.example</code> and <code>HANDOFF.md</code>), then restart the
+          Add <code>NEXT_PUBLIC_SANITY_PROJECT_ID</code> to <code>.env.local</code> (see <code>HANDOFF.md</code>), then restart the
           site. Until then the site shows the content from <code>src/data/defaults.ts</code>.
         </p>
       </main>

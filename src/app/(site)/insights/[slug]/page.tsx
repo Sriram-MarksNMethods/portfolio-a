@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/insights/[slug]">
   const { slug } = await params;
   const [settings, post] = await Promise.all([getSettings(), getPost(slug)]);
   if (!post) return {};
-  const metadata = buildMetadata({ settings, seo: post.seo ?? { image: post.cover?.url }, title: post.title, description: post.excerpt, path: `/insights/${slug}` });
+  const metadata = buildMetadata({ settings, seo: { ...post.seo, image: post.seo?.image || post.cover?.url }, title: post.title, description: post.excerpt, path: `/insights/${slug}`, label: "Insight" });
   return { ...metadata, openGraph: { ...metadata.openGraph, type: "article", publishedTime: stegaClean(post.date) } };
 }
 

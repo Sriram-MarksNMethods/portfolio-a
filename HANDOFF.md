@@ -35,7 +35,13 @@ Publishing updates the live site within seconds (Sanity Live, no webhook needed)
 3. **API → Tokens → Add token**:
    - "website-preview", permission **Viewer** → this is `SANITY_API_READ_TOKEN`
    - "seed", permission **Editor** → this is `SANITY_WRITE_TOKEN` (delete it after step 5)
-4. `cp .env.example .env.local` and fill in the project ID and both tokens.
+4. Create `.env.local` in the project folder (it is git-ignored, never commit it):
+   ```
+   NEXT_PUBLIC_SANITY_PROJECT_ID=<project id>
+   NEXT_PUBLIC_SANITY_DATASET=production
+   SANITY_API_READ_TOKEN=<Viewer token>     # server-only, never prefix with NEXT_PUBLIC_
+   SANITY_WRITE_TOKEN=<Editor token>        # only for the seed script; delete the token in Sanity afterwards
+   ```
 5. Fill the dashboard with the starter content: `node --env-file=.env.local scripts/seed-sanity.mts`
    (safe to re-run, it never overwrites existing documents).
 6. `npm run dev` → open http://localhost:3000/studio and log in.
@@ -55,7 +61,7 @@ Publishing updates the live site within seconds (Sanity Live, no webhook needed)
 | What | Where |
 |---|---|
 | Brand colours, fonts, animations | `src/app/globals.css` (`@theme`) |
-| Header (floating maroon pill) | `src/components/Header.tsx` |
+| Header (floating maroon pill; full-screen menu below 1024px) | `src/components/Header.tsx` |
 | Home page sections | `src/components/sections/*.tsx`, rendered in order by `Sections.tsx` |
 | Animated growth card in the cover | `src/components/GrowthCard.tsx` |
 | Case study page / insights pages | `src/app/(site)/work/[slug]`, `src/app/(site)/insights` |
@@ -63,6 +69,8 @@ Publishing updates the live site within seconds (Sanity Live, no webhook needed)
 | Dashboard fields | `src/sanity/schema/*.ts` |
 | Data loading (dashboard or defaults) | `src/sanity/content.ts` |
 | Placeholder content | `src/data/defaults.ts` |
+| Share images (OG), generated per page in the portfolio style | `src/app/og/route.tsx` (font in `assets/`), used by `src/lib/seo.ts` unless she uploads a share image |
+| Favicon / iPhone icon (maroon folder) | `src/app/icon.svg`, `src/app/apple-icon.tsx` |
 | SEO: metadata, sitemap, robots, llms.txt, JSON-LD | `src/lib/seo.ts`, `src/app/sitemap.ts`, `src/app/robots.ts`, `public/llms.txt`, Person / BlogPosting JSON-LD in the pages |
 
 ## Notes for the next developer

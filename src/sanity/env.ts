@@ -1,4 +1,4 @@
-// Sanity connection settings, from .env.local (see .env.example).
+// Sanity connection settings, from .env.local (the variables are listed in HANDOFF.md).
 // Until a project id is set, the site shows the content in src/data/defaults.ts and /studio shows setup steps.
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "";
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
